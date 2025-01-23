@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-form {
+            background-color:black;
+            border: 2px solid #40e0d0;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h1 {
+            text-align: center;
+            color: #40e0d0;
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom:10px;
+            border: none;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form button {
+            width: 90%;
+            padding: 10px;
+            color:black;
+            margin-bottom: 15px;
+            border: 4px solid #40e0d0;
+            border-radius: 15px;
+            font-size: 16px;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #40e0d0;
+            box-shadow: 0 0 5px rgba(64, 224, 208, 0.5);
+        }
+
+        .contact-form button {
+            width:95%;
+            background-color: #40e0d0;
+            color:black;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            
+        }
+
+        .contact-form button:hover {
+            background-color: #2eb1a8;
+        }
+
+        .contact-form textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-form">
+        <h1><u>Contact Us</u></h1>
+        <form id="gymContactForm">
+            <label for="name"><b>Name:</b></label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email"><b>Email:</b></label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message"><b>Message:</b></label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit"><strong>Submit</strong></button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('gymContactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert(`Thank you, ${name}! Your message has been sent.`);
+                this.reset(); // Clear the form
+            } else {
+                alert('Please fill out all fields.');
+            }
+        });
+    </script>
+
+</body>
+</html>
